@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+Node *  delete(Node * head)
+{
+    if(head = NULL)
+    {
+        return NULL;
+    }
+    Node * curr = head;
+    while(curr!=NULL) // aakho loop chalavano che ne
+    {
+    if(curr-> next !=NULL && curr->data == curr -> next -> data)
+    {
+        //  curr -> next = curr -> next -> next;
+        //  // ek node delete kare che tu ok stle curr -> next ne curr -> next -> next ne pointkare che tu
+        //  curr-> next = NULL;
+        //  delete(curr->next);
+        // this was my code
+        Node * next = curr -> next -> next;
+        Node * Nodetodelete = curr -> next;
+        delete(Nodetodelete);
+        curr-> next = next;
+        // firstly mei delete karyu ok as hu link todi dua to delete nahi thay ok pachi delete karine link todi mei 
+    }
+    else
+    {
+       curr = curr-> next;
+    }
+    }
+}
