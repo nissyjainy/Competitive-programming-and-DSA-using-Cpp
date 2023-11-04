@@ -2,32 +2,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // } Driver Code Ends
-class Solution{
-    public:
-    //Function to find if there exists a triplet in the 
-    //array A[] which sums up to X.
+class Solution
+{
+public:
+    // Function to find if there exists a triplet in the
+    // array A[] which sums up to X.
     bool find3Numbers(int A[], int n, int X)
     {
-        //sort karish ok pehla to 
-        sort(A,A+n);
-        //sort to thai gayu che ok 
-        int i =0;
-        int j = n-1;
-        int count =0;
-        while(i<j)
+        // sort karish ok pehla to
+        sort(A, A + n);
+        // sort to thai gayu che ok
+        int i = 0;
+        int j = n - 1;
+        int count = 0;
+        while (i < j)
         {
-            if(A[i]+A[j]>X)
+            if (A[i] + A[j] > X)
             {
                 j--;
             }
-            else if(A[i]+A[j]<X)
+            else if (A[i] + A[j] < X)
             {
-                int d = X-(A[i]+A[j]);
-                for(int k=i+1;k<j;k++)
+                int d = X - (A[i] + A[j]);
+                for (int k = i + 1; k < j; k++)
                 {
-                    if(A[k]==d)
+                    if (A[k] == d)
                     {
                         count++;
                     }
@@ -35,11 +35,11 @@ class Solution{
                 i++;
                 j--;
             }
-            else if(A[i]+A[j]==X)
+            else if (A[i] + A[j] == X)
             {
-                for(int m=0;m<n;m++)
+                for (int m = 0; m < n; m++)
                 {
-                    if(A[m]==0)
+                    if (A[m] == 0)
                     {
                         count++;
                     }
@@ -48,31 +48,66 @@ class Solution{
             i++;
             j--;
         }
-       if(count>0)
-       {
-        return 1;
-       }
-       return 0;
+        if (count > 0)
+        {
+            return 1;
+        }
+        return 0;
     }
-
 };
 
 //{ Driver Code Starts.
 
 int main()
 {
-	int T;
-	cin>>T;
-	while(T--)
-	{
-		int n,X;
-		cin>>n>>X;
-		int i,A[n];
-		for(i=0;i<n;i++)
-			cin>>A[i];
-		Solution ob;
-        cout <<  ob.find3Numbers(A, n, X) << endl;
+    int T;
+    cin >> T;
+    while (T--)
+    {
+        int n, X;
+        cin >> n >> X;
+        int i, A[n];
+        for (i = 0; i < n; i++)
+            cin >> A[i];
+        Solution ob;
+        cout << ob.find3Numbers(A, n, X) << endl;
     }
 }
 
 // } Driver Code Ends
+
+class Solution
+{
+public:
+    // Function to find if there exists a triplet in the
+    // array A[] which sums up to X.
+    bool find3Numbers(int A[], int n, int X)
+    {
+
+        sort(A, A + n);
+        for (int i = 0; i < n; i++)
+        {
+            // int s = X - A[i];
+            int j = i + 1;
+            int k = n - 1;
+            while (j < k)
+            {
+                if (A[j] + A[k] + A[i] == X)
+                {
+                    return true;
+                }
+                else if (A[j] + A[k] + A[i] < X)
+                {
+                    j++;
+                }
+                else if (A[j] + A[k] + A[i] > X)
+                {
+                    k--;
+                }
+            }
+        }
+        return 0;
+    }
+};
+
+ 
