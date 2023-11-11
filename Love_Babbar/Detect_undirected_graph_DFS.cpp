@@ -48,7 +48,7 @@ int main()
       if(!visited[i])
       {
         //to aagad fai call kar dfs ne ok 
-        if(dfs(0,-1,adj,visited)==true)
+        if(dfs(i,-1,adj,visited)==true) //tare che ne node to i thi traverse thay che ne 
         {
             return true;
         }
