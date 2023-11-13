@@ -28,6 +28,7 @@ bool bfs(int node , int visited[],int adj[])
         }
         return false;
     }
+    //logic to aakhu sachu che khabr pan padi gayi ok done
 
 }
 int main()
